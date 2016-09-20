@@ -3,4 +3,87 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_form1">Form1Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="title_activity_sprinkler_form">SprinklerForm</string>
+    <string name="fillallfields">Please fill the fileds</string>
+
+    <string-array name="quarterly">
+        <item>Risk Layout Changes</item>
+        <item>Occupacy Changes</item>
+        <item>Heating Changes</item>
+        <item>Lighting Changes</item>
+        <item>Equipment Changes</item>
+        <item>Water Classification</item>
+        <item>Sprinkler Obstruction</item>
+        <item>Clearance over Stock</item>
+        <item>Sprinkler temp. rates</item>
+        <item>Sprinkler Condition</item>
+        <item>Pipework Condition</item>
+        <item>Hanger Condition</item>
+        <item>Electrical Connections</item>
+        <item>Alarm Valve Proving Pipe</item>
+        <item>Pump Auto Start</item>
+        <item>Battery Level</item>
+        <item>Battery Density</item>
+        <item>Stop Valves</item>
+        <item>Flow Switches</item>
+        <item>Spares</item>
+        <item>Highest Sprinkler</item>
+    </string-array>
+
+    <string-array name="half_yearly">
+
+        <item>Alarm Valve Inspection</item>
+        <item>Air Valve Inspection</item>
+        <item>Alarm Turbine</item>
+        <item>Alarm Filter</item>
+        <item>Bell Test</item>
+        <item>Chains / Locks</item>
+        <item>Change over to Air</item>
+        <item>Clean &amp; reset accelerator</item>
+        <item>Compressor oil level</item>
+        <item>Compressor air filter</item>
+        <item>Change over to water</item>
+        <item>Orain air from remote point</item>
+        <item>Fail to start test</item>
+        <item>Fire in pumphouse</item>
+        <item>Over speed test</item>
+        <item>Pressure relief test</item>
+        <item>Optical taco test</item>
+        <item>Tank ball valve</item>
+        <item>Trace Heating</item>
+        <item>Storage Tank Level</item>
+        <item>Storage Tank Height</item>
+
+    </string-array>
+
+    <string-array name="yearly">
+
+        <item>Pumps / general Inspection</item>
+        <item>Loose guards / bolts</item>
+        <item>Fluid Leaks</item>
+        <item>Diesel pump run 1/2 hour</item>
+        <item>Electric pump run 10 min</item>
+        <item>Oil / filter change</item>
+        <item>Storage Tank</item>
+
+    </string-array>
+
+    <string-array name="alternate_trip">
+
+        <item>Start air pressure</item>
+        <item>Accelerator set</item>
+        <item>Test Valve Dia.</item>
+        <item>Time to trip</item>
+        <item>Time to discharge water</item>
+        <item>Location of test trip valve</item>
+
+    </string-array>
+
 </resources>

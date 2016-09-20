@@ -1,0 +1,438 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    tools:context=".fragment.Form_1.Form12">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etDateForm12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:gravity="left"
+                            android:hint="Date"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#787878"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etPrintNameForm12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Authorised Signature Name"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#787878"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbClientUnavailableForm12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Client Unavailable to Sign"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbForFDSOnlyForm12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="For FDS only"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Please sign to authorize for Fire Defence Service Ltd to undertake maintenance and / or repair work to the sprinkler system. During this time the system may be inactive."
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Authorised Signature"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/tvClearForm12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:padding="10dp"
+                        android:text="Clear"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp">
+
+                        <com.github.gcacace.signaturepad.views.SignaturePad
+                            android:id="@+id/signClientForm12"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            app:penColor="@android:color/black" />
+
+
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+                    <CheckBox
+
+                        android:id="@+id/tosWater"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Water"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/tosAlarm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alarm"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/gaseous"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gaseous"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/tosHalon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Halon"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+                            android:id="@+id/tosOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Other"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <CheckBox
+                        android:id="@+id/rfvInstallation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Installation"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/rfvService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Service"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/rfvEmergencyCall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Emergency Call"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/rfvSiteInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Site Instruction"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+                            android:id="@+id/rfvOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Other"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:text="Visit Details"
+                android:textColor="#000"
+                android:textSize="22sp" />
+
+            <android.support.v7.widget.CardView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+                            android:id="@+id/arrivalTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Arrival Time"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+
+                            android:id="@+id/departureTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Departure Time"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+                            android:id="@+id/travel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Travel (Hours)"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+
+
+                            android:id="@+id/milege"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:hint="Mileage"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/primaryColorDark">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:text="BACK"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="NEXT"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>

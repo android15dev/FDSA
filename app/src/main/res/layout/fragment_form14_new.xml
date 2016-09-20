@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="System state on arrival"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etNoteForm14_New"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left|top"
+                            android:hint="Note"
+                            android:minLines="2"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Pressure Test"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/etSetNoForm14New"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="start"
+                            android:hint="Set No"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#787878"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/cbTestedAsPerInstrucForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tested as per instructions below"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbAirTestForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Air test(2.5 bar for 24 hours)"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbWetTestForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Wet test(15 bar for 2 hours)"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbStandingPressureForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Standing pressure"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbPhotoGageBeforeForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Photo Gage Before"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbPhotoGageUpomForm14New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Photo Gage Upon Completetion"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/etStandingPressureBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:hint="bar"
+                                android:singleLine="true"
+                                android:textColor="#000"
+                                android:textColorHint="#787878"
+
+                                android:textSize="16sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/reasonSpecialTest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="reason for special test: client instruction extension to old system"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/specialTest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Special test"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:orientation="vertical">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/specialTestBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:hint="bar"
+                                android:singleLine="true"
+                                android:textColor="#000"
+                                android:textColorHint="#787878"
+                                android:textSize="16sp" />
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/specialTestHour"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:hint="hours"
+                                android:singleLine="true"
+                                android:textColor="#000"
+                                android:textColorHint="#787878"
+                                android:textSize="16sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/edit_comments"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left|top"
+                            android:hint="Notes"
+                            android:singleLine="false"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#787878"
+                            android:textSize="16sp" />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/primaryColorDark">
+
+        <TextView
+            android:id="@+id/back14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:text="BACK"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/next14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="NEXT"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>

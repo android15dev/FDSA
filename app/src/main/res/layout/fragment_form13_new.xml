@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Type of System"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbWaterForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Water"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbAlarmForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alarm"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbGaseuousForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Gaseous"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/HalonsForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Halon"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/etOtherTypeofSystemForm13New"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:hint="Other"
+                                android:singleLine="true"
+                                android:textColor="#000"
+                                android:textColorHint="#787878"
+
+                                android:textSize="16sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Reason For Visit"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cbInstallationForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Installation"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbServiceForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Service"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbEmergencyForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Emergency Call"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbSiteInstructionForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Site Instruction"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbPressureTestForm13_New"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pressure Test"
+                        android:textColor="#000"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_weight="1">
+
+                            <EditText
+                                android:id="@+id/etReasonForVisitForm13New"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:hint="Other"
+                                android:singleLine="true"
+                                android:textColor="#000"
+                                android:textColorHint="#787878"
+
+                                android:textSize="16sp" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/primaryColorDark">
+
+        <TextView
+            android:id="@+id/back13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:text="BACK"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/next13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="NEXT"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</LinearLayout>
