@@ -7,7 +7,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,7 +30,6 @@ import com.nkdroidsolutions.firedefence.model.Form1Model.FormOneProp;
 import com.nkdroidsolutions.firedefence.model.Form2Model.FormTwoProp;
 import com.nkdroidsolutions.firedefence.model.Form3Model.FormThreeProp;
 import com.nkdroidsolutions.firedefence.model.Form4Model.FormFourProp;
-import com.nkdroidsolutions.firedefence.model.GetAssignedForm1;
 import com.nkdroidsolutions.firedefence.model.LocalFormProp;
 import com.nkdroidsolutions.firedefence.model.allform.AllForm;
 import com.nkdroidsolutions.firedefence.storage.Database;
@@ -47,11 +45,6 @@ import com.nkdroidsolutions.firedefence.util.observer.Observer_AllForm;
 import com.nkdroidsolutions.firedefence.web_api.Fire_API;
 import com.nkdroidsolutions.firedefence.web_api.WebHandling;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -68,15 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private int mSelectedId;
-    private FloatingActionButton btnFloatingAction;
 
-    private ArrayList<GetAssignedForm1> getAssignedForm1ArrayList;
-
-    private ProgressDialog progressDialog;
-    private String responseObject;
-    private TextView tvDate;
-
-    private LinkedList<HashMap<String, String>> allForms;
+    private TextView tvDate, txt_notes;
 
     private com.getbase.floatingactionbutton.FloatingActionButton actionA, actionB, actionC, actionD;
     private FloatingActionsMenu multiple_actions;
@@ -103,14 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Log.e("action", "click 1");
-//
-//                GetAssignedForm1 getAssignedForm1 = new GetAssignedForm1();
-//                getAssignedForm1.f_id = "0";
-//                getAssignedForm1.client = "New form";
-//                getAssignedForm1ArrayList.add(getAssignedForm1);
-//                myAppAdapter.notifyDataSetChanged();
-
-                //TODO  add blank form here
                 Intent i = new Intent(MainActivity.this, Form1Activity.class);
                 i.putExtra(AppConstant.IS_NEW, true);
                 startActivity(i);
@@ -122,8 +100,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Log.e("action", "click 2");
-                multiple_actions.collapse();
+
                 Intent i = new Intent(MainActivity.this, SprinklerForm2.class);
+                i.putExtra(AppConstant.IS_NEW, true);
                 startActivity(i);
                 multiple_actions.collapse();
 
@@ -134,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Log.e("action", "click 3");
-                multiple_actions.collapse();
                 Intent i = new Intent(MainActivity.this, FireForm3.class);
+                i.putExtra(AppConstant.IS_NEW, true);
                 startActivity(i);
                 multiple_actions.collapse();
 
@@ -146,8 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Log.e("action", "click 4");
-                multiple_actions.collapse();
                 Intent i = new Intent(MainActivity.this, VehicleForm4.class);
+                i.putExtra(AppConstant.IS_NEW, true);
                 startActivity(i);
                 multiple_actions.collapse();
 
@@ -160,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setToolbar();
         initView();
         tvDate = (TextView) findViewById(R.id.tvDate);
+        txt_notes = (TextView) findViewById(R.id.txt_notes);
         recycler = (RecyclerView) findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
@@ -175,14 +155,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 pDialog.show();
 
 
-                LocalFormProp localForm = db.getLocalFormbyFormId(observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                LocalFormProp localForm = db.getLocalFormbyFormId(observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
 
-                if (observerAllForm.getAllForm().getResponse().get(position).getFormType().equals("1")) {
+                if (observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType().equals("1")) {
                     if (localForm == null) {
 
 
-                        WebHandling.getInstance().getFormOneDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().get(position).getFormId(),
-                                observerAllForm.getAllForm().getResponse().get(position).getFormType(), new FormOneHandler() {
+                        WebHandling.getInstance().getFormOneDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId(),
+                                observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType(), new FormOneHandler() {
                                     @Override
                                     public void onSuccess(FormOneProp formOneProp) {
                                         pDialog.dismiss();
@@ -196,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                                 Intent i = new Intent(MainActivity.this, Form1Activity.class);
                                                 i.putExtra(AppConstant.IS_NEW, false);
-                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                                                 startActivity(i);
 
                                             } catch (Exception e) {
@@ -214,13 +194,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Intent i = new Intent(MainActivity.this, Form1Activity.class);
                         i.putExtra(AppConstant.IS_NEW, false);
-                        i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                        i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                         startActivity(i);
                     }
-                } else if (observerAllForm.getAllForm().getResponse().get(position).getFormType().equals("2")) {
+                } else if (observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType().equals("2")) {
                     if (localForm == null) {
-                        WebHandling.getInstance().getFormTwoDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().get(position).getFormId(),
-                                observerAllForm.getAllForm().getResponse().get(position).getFormType(), new FormTwoHandler() {
+                        WebHandling.getInstance().getFormTwoDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId(),
+                                observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType(), new FormTwoHandler() {
                                     @Override
                                     public void onSuccess(FormTwoProp formTwoProp) {
                                         pDialog.dismiss();
@@ -233,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                                 Intent i = new Intent(MainActivity.this, SprinklerForm2.class);
                                                 i.putExtra(AppConstant.IS_NEW, false);
-                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                                                 startActivity(i);
 
                                             } catch (Exception e) {
@@ -250,15 +230,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Intent i = new Intent(MainActivity.this, SprinklerForm2.class);
                         i.putExtra(AppConstant.IS_NEW, false);
-                        i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                        i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                         startActivity(i);
                     }
 
-                } else if (observerAllForm.getAllForm().getResponse().get(position).getFormType().equals("3")) {
+                } else if (observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType().equals("3")) {
 
                     if (localForm == null) {
-                        WebHandling.getInstance().getFormThreeDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().get(position).getFormId(),
-                                observerAllForm.getAllForm().getResponse().get(position).getFormType(), new FormThreeHandler() {
+                        WebHandling.getInstance().getFormThreeDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId(),
+                                observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType(), new FormThreeHandler() {
                                     @Override
                                     public void onSuccess(FormThreeProp formThreeProp) {
                                         pDialog.dismiss();
@@ -271,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                                 Intent i = new Intent(MainActivity.this, FireForm3.class);
                                                 i.putExtra(AppConstant.IS_NEW, false);
-                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                                                 startActivity(i);
 
                                             } catch (Exception e) {
@@ -288,13 +268,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Intent i = new Intent(MainActivity.this, FireForm3.class);
                         i.putExtra(AppConstant.IS_NEW, false);
-                        i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                        i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                         startActivity(i);
                     }
-                } else if (observerAllForm.getAllForm().getResponse().get(position).getFormType().equals("4")) {
+                } else if (observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType().equals("4")) {
                     if (localForm == null) {
-                        WebHandling.getInstance().getFormFourDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().get(position).getFormId(),
-                                observerAllForm.getAllForm().getResponse().get(position).getFormType(), new FormFourHandler() {
+                        WebHandling.getInstance().getFormFourDetail(AppConstant.ACTION_GETFORMDETAIL, observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId(),
+                                observerAllForm.getAllForm().getResponse().getForm().get(position).getFormType(), new FormFourHandler() {
                                     @Override
                                     public void onSuccess(FormFourProp formFourProp) {
                                         pDialog.dismiss();
@@ -307,7 +287,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                                 Intent i = new Intent(MainActivity.this, VehicleForm4.class);
                                                 i.putExtra(AppConstant.IS_NEW, false);
-                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                                                i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                                                 startActivity(i);
 
                                             } catch (Exception e) {
@@ -324,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Intent i = new Intent(MainActivity.this, VehicleForm4.class);
                         i.putExtra(AppConstant.IS_NEW, false);
-                        i.putExtra("id", observerAllForm.getAllForm().getResponse().get(position).getFormId());
+                        i.putExtra("id", observerAllForm.getAllForm().getResponse().getForm().get(position).getFormId());
                         startActivity(i);
                     }
 
@@ -425,8 +405,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void getForms() {
-        String tag_json_obj = "json_obj_req";
-        allForms = new LinkedList<>();
 
 //        String url = "http://fire-defence.net/ws/api.php?action=return_user_forms&user_id=1";
         //     String url = "http://fire-defence.net/ws/api.php?action=return_user_forms&user_id=" + PrefUtils.getCurrentUser(MainActivity.this).userId;
@@ -532,6 +510,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (observable instanceof Observer_AllForm) {
             adp.notifyDataSetChanged();
+            if(observerAllForm.getAllForm().getResponse().getNotes().size()>0){
+                txt_notes.setText(observerAllForm.getAllForm().getResponse().getNotes().get(0).getNotes());
+            }
         }
 
     }

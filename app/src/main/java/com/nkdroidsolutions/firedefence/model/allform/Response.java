@@ -3,109 +3,45 @@ package com.nkdroidsolutions.firedefence.model.allform;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Response {
 
-    @SerializedName("form_id")
+    @SerializedName("form")
     @Expose
-    private String formId;
-    @SerializedName("form_type")
-    @Expose
-    private String formType;
+    private List<Form> form = new ArrayList<Form>();
     @SerializedName("notes")
     @Expose
-    private String notes;
-    @SerializedName("job_no")
-    @Expose
-    private String jobNo;
-    @SerializedName("client_name")
-    @Expose
-    private String clientName;
-    @SerializedName("form_created_date")
-    @Expose
-    private String formCreatedDate;
+    private List<Note> notes = new ArrayList<Note>();
 
     /**
-     * @return The formId
+     * @return The form
      */
-    public String getFormId() {
-        return formId;
+    public List<Form> getForm() {
+        return form;
     }
 
     /**
-     * @param formId The form_id
+     * @param form The form
      */
-    public void setFormId(String formId) {
-        this.formId = formId;
-    }
-
-    /**
-     * @return The formType
-     */
-    public String getFormType() {
-        return formType;
-    }
-
-    /**
-     * @param formType The form_type
-     */
-    public void setFormType(String formType) {
-        this.formType = formType;
+    public void setForm(List<Form> form) {
+        this.form = form;
     }
 
     /**
      * @return The notes
      */
-    public String getNotes() {
+    public List<Note> getNotes() {
         return notes;
     }
 
     /**
      * @param notes The notes
      */
-    public void setNotes(String notes) {
+    public void setNotes(List<Note> notes) {
         this.notes = notes;
     }
 
-    /**
-     * @return The jobNo
-     */
-    public String getJobNo() {
-        return jobNo;
-    }
-
-    /**
-     * @param jobNo The job_no
-     */
-    public void setJobNo(String jobNo) {
-        this.jobNo = jobNo;
-    }
-
-    /**
-     * @return The clientName
-     */
-    public String getClientName() {
-        return clientName;
-    }
-
-    /**
-     * @param clientName The client_name
-     */
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    /**
-     * @return The formCreatedDate
-     */
-    public String getFormCreatedDate() {
-        return formCreatedDate;
-    }
-
-    /**
-     * @param formCreatedDate The form_created_date
-     */
-    public void setFormCreatedDate(String formCreatedDate) {
-        this.formCreatedDate = formCreatedDate;
-    }
-
 }
+

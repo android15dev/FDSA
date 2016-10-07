@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nkdroidsolutions.firedefence.R;
+import com.nkdroidsolutions.firedefence.model.allform.Form;
 import com.nkdroidsolutions.firedefence.model.allform.Response;
 import com.nkdroidsolutions.firedefence.util.observer.AllObserver;
 
@@ -27,7 +28,7 @@ public class MainList_Forms_Adapter extends RecyclerView.Adapter<MainList_Forms_
     @Override
     public void onBindViewHolder(MainList_ViewHolder holder, final int position) {
 
-        Response response = observerAllForm.getAllForm().getResponse().get(position);
+        Form response = observerAllForm.getAllForm().getResponse().getForm().get(position);
 
         holder.client_name.setText(response.getClientName());
         holder.form_type.setText("Form type: Form " + response.getFormType());
@@ -44,7 +45,7 @@ public class MainList_Forms_Adapter extends RecyclerView.Adapter<MainList_Forms_
 
     @Override
     public int getItemCount() {
-        return observerAllForm.getAllForm().getResponse().size();
+        return observerAllForm.getAllForm().getResponse().getForm().size();
     }
 
     class MainList_ViewHolder extends RecyclerView.ViewHolder {
