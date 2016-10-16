@@ -1,5 +1,6 @@
 package com.nkdroidsolutions.firedefence.activity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,6 +19,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +48,7 @@ import com.nkdroidsolutions.firedefence.util.observer.Observer_AllForm;
 import com.nkdroidsolutions.firedefence.web_api.Fire_API;
 import com.nkdroidsolutions.firedefence.web_api.WebHandling;
 
+import java.util.Calendar;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -66,16 +70,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private com.getbase.floatingactionbutton.FloatingActionButton actionA, actionB, actionC, actionD;
     private FloatingActionsMenu multiple_actions;
-    private TextView txt_save, toolbarTitle;
+    private TextView toolbarTitle;
     private RecyclerView recycler;
     private MainList_Forms_Adapter adp;
     private Database db;
+    private ImageView img_calender;
+    private String choosedDate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        choosedDate = FunctionUtils.getInstance().getMainPageDate(System.currentTimeMillis());
 
         db = new Database(this);
 
@@ -139,12 +147,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setToolbar();
         initView();
         tvDate = (TextView) findViewById(R.id.tvDate);
+        tvDate.setText("Date : " + choosedDate);
         txt_notes = (TextView) findViewById(R.id.txt_notes);
         recycler = (RecyclerView) findViewById(R.id.recycler);
+        img_calender = (ImageView) findViewById(R.id.img_calender);
         recycler.setLayoutManager(new LinearLayoutManager(this));
+
+        recycler.setNestedScrollingEnabled(false);
 
         adp = new MainList_Forms_Adapter();
         recycler.setAdapter(adp);
+
+        img_calender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateDialog();
+            }
+        });
 
         adp.setOnItemClickListner(new MainList_Forms_Adapter.OnClickedListner() {
             @Override
@@ -323,13 +342,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         itemSelection(mSelectedId);
     }
 
+    private void showDateDialog() {
+        final Calendar cal = Calendar.getInstance();
+        DatePickerDialog dia = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                cal.set(Calendar.YEAR, year);
+                cal.set(Calendar.MONTH, monthOfYear);
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                choosedDate = FunctionUtils.getInstance().getMainPageDate(cal.getTimeInMillis());
+                tvDate.setText("Date : " + choosedDate);
+                getForms();
+            }
+        }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
+        dia.show();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
 
         observerAllForm.addObserver(this);
 
-        tvDate.setText("Date : " + FunctionUtils.getInstance().getCurrentDate());
+//        tvDate.setText("Date : " + FunctionUtils.getInstance().getMainPageDate(System.currentTimeMillis()));
         if (ConnectionChecker.getConnectionInfo(MainActivity.this) == AppConstant.TYPE_NOT_CONNECTED) {
             Toast.makeText(MainActivity.this, "Please check your internet connection", Toast.LENGTH_LONG).show();
         } else {
@@ -348,9 +383,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        txt_save = (TextView) findViewById(R.id.txt_save);
+   //     txt_save = (TextView) findViewById(R.id.txt_save);
         toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
-        txt_save.setVisibility(View.GONE);
+   //     txt_save.setVisibility(View.GONE);
         toolbarTitle.setVisibility(View.GONE);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -421,7 +456,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Fire_API fire_api = retrofit.create(Fire_API.class);
 
-        Call<AllForm> call = fire_api.getAllForm(AppConstant.ACTION_GETALLFORM, PrefUtils.getCurrentUser(this).userId);
+        Call<AllForm> call = fire_api.getAllFormWithDate(AppConstant.ACTION_GETALLFORM_WITHDATE, PrefUtils.getCurrentUser(this).userId, choosedDate);
 
         call.enqueue(new Callback<AllForm>() {
             @Override
@@ -510,7 +545,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (observable instanceof Observer_AllForm) {
             adp.notifyDataSetChanged();
-            if(observerAllForm.getAllForm().getResponse().getNotes().size()>0){
+            if (observerAllForm.getAllForm().getResponse().getNotes().size() > 0) {
                 txt_notes.setText(observerAllForm.getAllForm().getResponse().getNotes().get(0).getNotes());
             }
         }

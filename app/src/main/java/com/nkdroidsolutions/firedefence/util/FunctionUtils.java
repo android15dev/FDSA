@@ -51,13 +51,14 @@ public class FunctionUtils {
     }
 
     public String encodeToBase64(Bitmap image) {
-        Bitmap immagex = Bitmap.createScaledBitmap(image, 350, 350, true);;
+        Bitmap immagex = Bitmap.createScaledBitmap(image, 350, 350, true);
+        ;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         immagex.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] b = baos.toByteArray();
         String imageEncoded = Base64.encodeToString(b, Base64.DEFAULT);
         Log.e("LOOK", imageEncoded);
-        return "data:image/png;base64," + imageEncoded.replace(" ","").replace("\n","");
+        return "data:image/png;base64," + imageEncoded.replace(" ", "").replace("\n", "");
     }
 
     public Bitmap encodeToBitmap(String encodedImage) {
@@ -104,6 +105,7 @@ public class FunctionUtils {
             }
         }
     }
+
     public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
         int width = image.getWidth();
         int height = image.getHeight();
@@ -125,9 +127,14 @@ public class FunctionUtils {
         ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         boolean isOnline = (networkInfo != null && networkInfo.isConnected());
-        if(!isOnline)
+        if (!isOnline)
             Toast.makeText(context, " No internet Connection ", Toast.LENGTH_SHORT).show();
 
         return isOnline;
+    }
+
+    public String getMainPageDate(long time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(new Date(time));
     }
 }

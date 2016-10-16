@@ -23,6 +23,10 @@ public interface Fire_API {
 
     @FormUrlEncoded
     @POST("api.php")
+    Call<AllForm> getAllFormWithDate(@Field("action") String action, @Field("user_id") String user_id, @Field("date") String date);
+
+    @FormUrlEncoded
+    @POST("api.php")
     Call<FormOneProp> getFormOne(@Field("action") String action, @Field("form_id") String user_id, @Field("form") String form);
 
     @FormUrlEncoded

@@ -7,6 +7,8 @@ public class AppConstant {
 
     public static final String BASE_URL = "http://fire-defence.net/ws/";
 
+    public static final String ACTION_GETALLFORM_WITHDATE = "return_user_forms1";
+
     public static final String ACTION_GETALLFORM = "return_user_forms";
     public static final String ACTION_GETFORMDETAIL = "return_form_data";
 
