@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     fab:fab_colorNormal="@color/white"
                     fab:fab_colorPressed="@color/white_pressed"
-                    fab:fab_title="Sprinkle Maintainance Checklist" />
+                    fab:fab_title="Sprinkle Maintenance Checklist" />
 
                 <com.getbase.floatingactionbutton.FloatingActionButton
                     android:id="@+id/action_c"

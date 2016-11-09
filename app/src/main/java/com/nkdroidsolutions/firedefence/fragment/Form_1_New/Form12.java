@@ -187,7 +187,7 @@ public class Form12 extends Fragment implements AllObserver {
                 putSign();
 
                 if (!TextUtils.isEmpty(observerFormOne.getFormone().getResponse().getReport2().getDate())
-                        && !TextUtils.isEmpty(observerFormOne.getFormone().getResponse().getReport2().getAuthorisedBy())
+               //         && !TextUtils.isEmpty(observerFormOne.getFormone().getResponse().getReport2().getAuthorisedBy())
                         && !TextUtils.isEmpty(observerFormOne.getFormone().getResponse().getReport2().getAuthorisedSign())
                         && !TextUtils.isEmpty(observerFormOne.getFormone().getResponse().getReport2().getAuthorisedSignName())) {
                     ((Form1Activity) getActivity()).viewPager.setCurrentItem(2);

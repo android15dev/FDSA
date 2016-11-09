@@ -11,11 +11,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
     <string name="title_activity_sprinkler_form">SprinklerForm</string>
-    <string name="fillallfields">Please fill the fileds</string>
+    <string name="fillallfields">Please fill the fields</string>
 
     <string-array name="quarterly">
         <item>Risk Layout Changes</item>
-        <item>Occupacy Changes</item>
+        <item>Occupancy Changes</item>
         <item>Heating Changes</item>
         <item>Lighting Changes</item>
         <item>Equipment Changes</item>

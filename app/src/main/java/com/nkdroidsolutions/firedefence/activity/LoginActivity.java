@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                 super.onPostExecute(aVoid);
                 progressDialog.dismiss();
 
-                Log.d("cnjd", responseObject);
+             //   Log.d("cnjd", responseObject);
                 try {
                     User user = new GsonBuilder().create().fromJson(responseObject, User.class);
                     if (user.responseId.equalsIgnoreCase("1")) {

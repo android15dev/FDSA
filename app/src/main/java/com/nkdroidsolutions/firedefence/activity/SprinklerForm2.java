@@ -118,7 +118,7 @@ public class SprinklerForm2 extends AppCompatActivity implements AllObserver {
             toolbar.setTitle("Form 2");
             setSupportActionBar(toolbar);
             toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
-            toolbarTitle.setText("Sprinkle Maintanence Check List");
+            toolbarTitle.setText("Sprinkler Maintenance Check List");
             toolbar.setNavigationIcon(R.drawable.ic_back);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override

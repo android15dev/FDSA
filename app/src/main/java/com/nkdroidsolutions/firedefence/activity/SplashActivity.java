@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
         new CountDownTimer(2000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-             //nothing
+                //nothing
             }
 
             public void onFinish() {
@@ -43,6 +43,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }.start();
     }
+
     private void goToLogin() {
 
         if (ConnectionChecker.getConnectionInfo(SplashActivity.this) == AppConstant.TYPE_NOT_CONNECTED) {
@@ -57,8 +58,8 @@ public class SplashActivity extends AppCompatActivity {
             alertDialogBuilder
                     .setMessage("Not able to connect to Internet! ")
                     .setCancelable(false)
-                    .setPositiveButton("Try Again",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
+                    .setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, close
                             // current activity
                             dialog.dismiss();
@@ -71,6 +72,24 @@ public class SplashActivity extends AppCompatActivity {
                             // the dialog box and do nothing
                             dialog.dismiss();
                             SplashActivity.this.finish();
+                        }
+                    })
+                    .setNeutralButton("Go Offline", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            Database con = new Database(SplashActivity.this);
+                            if (con.getSessionId().equals("-1")) {
+                                Intent i = new Intent(SplashActivity.this, LoginActivity.class);
+                                startActivity(i);
+                                finish();
+
+                            } else {
+                                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                                startActivity(i);
+                                finish();
+                            }
+                            con.close();
                         }
                     });
 
@@ -87,7 +106,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    public void getRegId(){
+    public void getRegId() {
 
         new AsyncTask<Void, Void, Void>() {
 
@@ -106,7 +125,7 @@ public class SplashActivity extends AppCompatActivity {
                     }
                     regid = gcm.register(PROJECT_NUMBER);
                     Log.e("GCM ID :", regid);
-                    if(regid==null || regid==""){
+                    if (regid == null || regid == "") {
                         AlertDialog.Builder alert = new AlertDialog.Builder(SplashActivity.this);
                         alert.setTitle("Error");
                         alert.setMessage("Error of registering your device to server!");
@@ -124,6 +143,7 @@ public class SplashActivity extends AppCompatActivity {
                                 SplashActivity.this.finish();
                             }
                         });
+
                         alert.show();
                     } else {
                         runOnUiThread(new Runnable() {
@@ -140,16 +160,13 @@ public class SplashActivity extends AppCompatActivity {
                                     public void onFinish() {
 
                                         Database con = new Database(SplashActivity.this);
-                                        if(con.getSessionId().equals("-1"))
-                                        {
-                                            Intent i=new Intent(SplashActivity.this,LoginActivity.class);
+                                        if (con.getSessionId().equals("-1")) {
+                                            Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                                             startActivity(i);
                                             finish();
 
-                                        }
-                                        else
-                                        {
-                                            Intent i=new Intent(SplashActivity.this,MainActivity.class);
+                                        } else {
+                                            Intent i = new Intent(SplashActivity.this, MainActivity.class);
                                             startActivity(i);
                                             finish();
 
@@ -164,19 +181,16 @@ public class SplashActivity extends AppCompatActivity {
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
-                    Log.e("error",ex.toString());
+                    Log.e("error", ex.toString());
 
                     Database con = new Database(SplashActivity.this);
-                    if(con.getSessionId().equals("-1"))
-                    {
-                        Intent i=new Intent(SplashActivity.this,LoginActivity.class);
+                    if (con.getSessionId().equals("-1")) {
+                        Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                         startActivity(i);
                         finish();
 
-                    }
-                    else
-                    {
-                        Intent i=new Intent(SplashActivity.this,MainActivity.class);
+                    } else {
+                        Intent i = new Intent(SplashActivity.this, MainActivity.class);
                         startActivity(i);
                         finish();
 

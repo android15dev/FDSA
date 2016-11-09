@@ -128,7 +128,7 @@
                         android:id="@+id/cbPhotoGageBeforeForm14New"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Photo Gage Before"
+                        android:text="Photo Gauge Before"
                         android:textColor="#000"
                         android:textSize="18sp" />
 
@@ -136,7 +136,7 @@
                         android:id="@+id/cbPhotoGageUpomForm14New"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Photo Gage Upon Completetion"
+                        android:text="Photo Gauge Upon Completion"
                         android:textColor="#000"
                         android:textSize="18sp" />
 

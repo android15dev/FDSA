@@ -149,7 +149,7 @@ public class Form45 extends Fragment implements AllObserver {
         btnSendForm17New = (Button) convertView.findViewById(R.id.btnSendForm17New);
 
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("dd.MM.yy");
         String formattedDate = df.format(c.getTime());
         edit_date.setText(formattedDate);
 

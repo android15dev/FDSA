@@ -49,8 +49,8 @@ public class PumpAdapter extends RecyclerView.Adapter<PumpAdapter.PumpListViewHo
                 && !TextUtils.isEmpty(pumpDatum.getPumpMake()) && !TextUtils.isEmpty(pumpDatum.getMotorNotes())
                 && !TextUtils.isEmpty(pumpDatum.getPumpModel()) && !TextUtils.isEmpty(pumpDatum.getPoint1Flow())
                 && !TextUtils.isEmpty(pumpDatum.getPumpDia()) && !TextUtils.isEmpty(pumpDatum.getPoint1Pressure())
-                && !TextUtils.isEmpty(pumpDatum.getPumpAge()) && !TextUtils.isEmpty(pumpDatum.getPoint1Diesel())
-                && !TextUtils.isEmpty(pumpDatum.getMotorMake()) && !TextUtils.isEmpty(pumpDatum.getPoint1Electric())
+                && !TextUtils.isEmpty(pumpDatum.getPumpAge()) /*&& !TextUtils.isEmpty(pumpDatum.getPoint1Diesel())*/
+                && !TextUtils.isEmpty(pumpDatum.getMotorMake()) /*&& !TextUtils.isEmpty(pumpDatum.getPoint1Electric())*/
                 && !TextUtils.isEmpty(pumpDatum.getMotorModel()) && !TextUtils.isEmpty(pumpDatum.getPoint2Diesel())
                 && !TextUtils.isEmpty(pumpDatum.getMotorDia()) && !TextUtils.isEmpty(pumpDatum.getPoint2Electric())
                 && !TextUtils.isEmpty(pumpDatum.getPoint3Flow()) && !TextUtils.isEmpty(pumpDatum.getPoint2Flow())

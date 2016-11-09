@@ -106,7 +106,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="Please sign to authorize for Fire Defence Service Ltd to undertake maintenance and / or repair work to the sprinkler system. During this time the system may be inactive."
+                android:text="Please sign to authorise for Fire Defence Service Ltd to undertake maintenance and / or repair work to the sprinkler system. During this time the system may be inactive."
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="18sp" />

@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:background="#fff"
                     android:padding="4dp"
-                    android:singleLine="true"
+                    android:singleLine="false"
                     android:text="Form type: Form "
                     android:textColor="#787878"
                     android:textSize="12sp" />

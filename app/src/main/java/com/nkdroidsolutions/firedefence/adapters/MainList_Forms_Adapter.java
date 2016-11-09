@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.nkdroidsolutions.firedefence.R;
 import com.nkdroidsolutions.firedefence.model.allform.Form;
-import com.nkdroidsolutions.firedefence.model.allform.Response;
 import com.nkdroidsolutions.firedefence.util.observer.AllObserver;
 
 /**
@@ -31,7 +30,15 @@ public class MainList_Forms_Adapter extends RecyclerView.Adapter<MainList_Forms_
         Form response = observerAllForm.getAllForm().getResponse().getForm().get(position);
 
         holder.client_name.setText(response.getClientName());
-        holder.form_type.setText("Form type: Form " + response.getFormType());
+        if (response.getFormType().equals("1")) {
+            holder.form_type.setText("Form Type: Engineers Report");
+        } else if (response.getFormType().equals("2")) {
+            holder.form_type.setText("Form Type: Sprinkle Maintenance Checklist");
+        } else if (response.getFormType().equals("3")) {
+            holder.form_type.setText("Form Type: Fire Extinguisher Checklist");
+        } else if (response.getFormType().equals("4")) {
+            holder.form_type.setText("Form Type: Vehicle Checklist");
+        }
         holder.notes.setText(response.getNotes());
 
         holder.open.setOnClickListener(new View.OnClickListener() {

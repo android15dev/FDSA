@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="10dp"
-                android:text="Complettion of Service"
+                android:text="Completion of Service"
                 android:textColor="@android:color/black"
                 android:textSize="18dp" />
 

@@ -37,7 +37,8 @@ public class FunctionUtils {
     }
 
     public String getCurrentDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy");
         return sdf.format(new Date());
     }
 
@@ -134,7 +135,7 @@ public class FunctionUtils {
     }
 
     public String getMainPageDate(long time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy");
         return sdf.format(new Date(time));
     }
 }
